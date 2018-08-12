@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/guess.css">
+		<title>Guessing Game</title>
+	</head>
+	<body>
+		<div class="container text-center">
+			<h1>Guessing Game</h1>
+			<div id="startupDiv">
+				<p class="lead">In this game, I ask, learn and guess about anything</p>
+				<h2>What would you like me to guess about now?</h2>
+				<p class="lead">These categories I already know, but you can add more.</p>
+				<form action="/play">
+					<div class="input-group mb-3 text-center">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="selectCategory">Category</label>
+						</div>
+						<select class="custom-select" id="selectCategory" name="selectCategory">
+							<option selected value="Choose">Choose...</option>
+							<% for (let i=0; i<list.length; i++) {%>
+								<option value="<%=list[i].name%>"><%=list[i].name%></option>
+							<%}%>
+						</select>
+					</div>
+
+					<div id="newCategory" class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">New Category</span>
+						</div>
+						<input id="newCategoryInput" name="newCategoryInput" type="text" class="form-control" placeholder="Enter a new Category to teach me" aria-label="New Category" aria-describedby="basic-addon1">
+					</div>
+					<button id="playButton" type="submit" class="btn btn-dark btn-lg">Let's Play!</button>
+				</form>
+			</div>
+		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script type="application/javascript">
+			$("#newCategory").hide();
+			$("#playButton").hide();
+			$("#gameStarterDiv").hide()
+			$("#gameDiv").hide()
+			$("#selectCategory").change(function() {
+				if ($(this).val() == "Choose") {
+					$("#newCategory").hide();
+					$("#playButton").hide();
+				} else {
+					if ($(this).val() == "I will teach you something new!") {
+						$("#newCategory").show();
+						if ($("#newCategoryInput").val() == "") {
+							$("#playButton").hide();
+						} else {
+							$("#playButton").show();
+						}
+					} else {
+						$("#newCategory").hide();
+						$("#playButton").show();
+					}
+				}
+			});
+			$("#newCategoryInput").change(function() {
+				$("#playButton").show();
+			});
+		</script>
+	</body>
+</html>

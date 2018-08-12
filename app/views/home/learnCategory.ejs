@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/guess.css">
+		<title>Guessing Game</title>
+	</head>
+	<body>
+		<div class="container text-center">
+			<h1>Guessing Game</h1>
+			<div id="game">
+				<p class="lead">Now you need to teach me about this new stuff... <%=category%></p>
+				<form action="/saveCategory">
+					<input name="category" id="category" type="hidden" value="<%=category%>">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">First Specimen</span>
+						</div>
+						<input name="specimen1" id="specimen1" type="text" class="form-control" placeholder="Give me an example of <%=category%>" aria-label="specimen1" aria-describedby="basic-addon1">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon2">Second Specimen</span>
+						</div>
+						<input name="specimen2" id="specimen2" type="text" class="form-control" placeholder="Give me another example of <%=category%>" aria-label="specimen2" aria-describedby="basic-addon2">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon3">Differentiating Question</span>
+						</div>
+						<input name="question" id="question" type="text" class="form-control" placeholder="Now give me a question so I can tell them apart..." aria-label="question" aria-describedby="basic-addon3">
+					</div>
+					<p>Now, what is the answer for Specimen 1 above?</p>
+					<button id="yes" name="answerForS1" value='Yes' type="submit" class="btn btn-dark btn-sm">Yes</button>
+					<button id="no" name="answerForS1" value='No' type="submit" class="btn btn-dark btn-sm">No</button>
+				</form>
+			</div>
+		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	</body>
+</html>
